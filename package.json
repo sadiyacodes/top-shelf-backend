@@ -1,0 +1,27 @@
+{
+  "name": "top-shelf-backend",
+  "version": "1.0.0",
+  "description": "backend files for top-shelf",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm run dev --prefix ./client",
+    "dev": "concurrently \"npm run start\" \"npm run client\""
+  },
+  "keywords": [
+    "ecommerce",
+    "react",
+    "mern"
+  ],
+  "author": "sadiya parveen",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-formidable": "^1.2.0",
+    "mongoose": "^8.5.4",
+    "nodemon": "^3.1.4"
+  }
+}
