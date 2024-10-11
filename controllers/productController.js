@@ -1,4 +1,4 @@
-import productModel from "../models/productModel";
+import productModel from "../models/productModel.js";
 import slugify from "slugify";
 import fs from "fs";
 import { error } from "console";

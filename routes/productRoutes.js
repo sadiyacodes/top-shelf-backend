@@ -8,7 +8,7 @@ import {
   productFilterController,
   productImageController,
   updateProductController,
-} from "../controllers/productController";
+} from "../controllers/productController.js";
 
 //Creating product router
 const router = express.Router();

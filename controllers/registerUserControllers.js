@@ -1,7 +1,7 @@
 import { comparePassword, hashPassword } from "../helpers/authHelper.js";
 import JWT from "jsonwebtoken";
 import userModel from "../models/userModel.js";
-// import { Payment } from '../models/paymentModel.js';
+//import { Payment } from "../models/paymentModel.js";
 
 export const registerUser = async (req, res) => {
   try {
@@ -31,7 +31,7 @@ export const registerUser = async (req, res) => {
     }
 
     //register user
-    const hashedPassword = await hashedPassword(password);
+    const hashedPassword = await hashPassword(password);
     const newUser = await new userModel({
       name,
       email,
@@ -84,7 +84,7 @@ export const loginUser = async (req, res) => {
     }
     //token creation
     const token = await JWT?.sign({ _id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "5d",
+      expiresIn: "1d",
     });
     res.status(200).send({
       success: true,
