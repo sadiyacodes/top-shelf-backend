@@ -23,6 +23,7 @@ connectDB();
 //Routes
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/product", productRoutes);
+app.use("/api/v1/category", categoryRoutes);
 
 const PORT = process.env.PORT || 8080;
 
