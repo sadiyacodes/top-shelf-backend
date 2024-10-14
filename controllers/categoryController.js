@@ -1,4 +1,4 @@
-import categoryModel from "../models/categoryModel";
+import categoryModel from "../models/categoryModel.js";
 import slugify from "slugify";
 
 export const createCategoryController = async (req, res) => {
@@ -109,7 +109,7 @@ export const deleteCategoryController = async (req, res) => {
 
     //deleting category
 
-    await categoryModel.findOneAndRemove(id, {
+    await categoryModel.findOneAndDelete(id, {
       new: true,
     });
     res.status(200).send({

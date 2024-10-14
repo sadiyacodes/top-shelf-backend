@@ -6,6 +6,7 @@ import morgan from "morgan";
 import connectDB from "./config/db.js";
 import authRoute from "./routes/authRoute.js";
 import productRoutes from "./routes/productRoutes.js";
+import categoryRoutes from "./routes/categoryRoutes.js";
 import cors from "cors";
 
 // express call

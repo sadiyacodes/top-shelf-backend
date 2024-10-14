@@ -10,14 +10,27 @@ import {
   updateProductController,
 } from "../controllers/productController.js";
 
+import { isAdmin, loginTokenCheck } from "./../middlewares/authMiddleWare.js";
+
 //Creating product router
 const router = express.Router();
 
 //create product route
-router.post("/create-product", formidable(), createProductController);
+router.post(
+  "/create-product",
+  loginTokenCheck,
+  isAdmin,
+  formidable(),
+  createProductController
+);
 
 //update product route
-router.put("/update-product/:id", updateProductController);
+router.put(
+  "/update-product/:id",
+  loginTokenCheck,
+  isAdmin,
+  updateProductController
+);
 
 //get all products
 router.get("/products", getAllProductsController);
@@ -26,7 +39,12 @@ router.get("/products", getAllProductsController);
 router.get("/specific-product/:slug", getSpecificProduct);
 
 //delete product route
-router.delete("/delete-product/:id", deleteProductController);
+router.delete(
+  "/delete-product/:id",
+  loginTokenCheck,
+  isAdmin,
+  deleteProductController
+);
 
 //get image
 router.get("/product-image/:pid", productImageController);

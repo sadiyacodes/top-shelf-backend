@@ -8,7 +8,6 @@ export const loginTokenCheck = (req, res, next) => {
     const getVerification = JWT.verify(token, process.env.JWT_SECRET);
     //Confirming that the request gets the id
     req.user = getVerification;
-    console.log(req.user);
     next();
   } catch (error) {
     console.error(error);

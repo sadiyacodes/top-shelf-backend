@@ -20,7 +20,7 @@ router.post("/login", loginUser);
 router.post("/forget-password", forgetpasswordController);
 
 //update user profile
-router.put("/edit-profile", updateUserController);
+router.put("/edit-profile", loginTokenCheck, updateUserController);
 
 //user orders
 //router.get("/orders", loginTokenCheck, getOrderController);

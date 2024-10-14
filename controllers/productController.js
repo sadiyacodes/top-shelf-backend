@@ -62,7 +62,7 @@ export const createProductController = async (req, res) => {
       message: "Product created successfully",
       product,
     });
-  } catch (err) {
+  } catch (error) {
     console.error(error);
     res.status(500).send({ success: false, error });
   }
@@ -119,7 +119,7 @@ export const getSpecificProduct = async (req, res) => {
       .populate("category");
 
     if (!product) {
-      res.status(404).send({
+      return res.status(404).send({
         success: false,
         message: "Product not found",
       });
@@ -168,13 +168,13 @@ export const getAllProductsController = async (req, res) => {
 export const deleteProductController = async (req, res) => {
   try {
     const { id } = req.params;
-    await productModel.findByIdAndRemove({ _id: id });
+    await productModel.findByIdAndDelete({ _id: id });
 
     const products = await productModel.find({});
-    res.status(200).send({ sucess: true, products });
+    res.status(200).send({ success: true, products });
   } catch (error) {
     console.error(error);
-    res.status(500).send({ sucess: false, error });
+    res.status(500).send({ success: false, error });
   }
 };
 

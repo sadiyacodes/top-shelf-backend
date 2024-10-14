@@ -156,6 +156,25 @@ export const forgetpasswordController = async (req, res) => {
 export const updateUserController = async (req, res) => {
   try {
     const { name, phone, address, auth } = req.body;
+
+    if (!auth) {
+      return res.status(400).send({
+        message: "Invalid request auth field is missing in request",
+      });
+    }
+
+    if (!auth?.user) {
+      return res.status(400).send({
+        message: "Invalid request user field is missing in request",
+      });
+    }
+
+    if (!auth?.user?._id) {
+      return res.status(400).send({
+        message: "Invalid request _id field is missing in request",
+      });
+    }
+
     const userUpdatedDetail = await userModel.findByIdAndUpdate(
       auth?.user?._id,
       {

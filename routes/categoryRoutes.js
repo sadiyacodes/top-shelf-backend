@@ -5,9 +5,9 @@ import {
   getAllCategoriesController,
   getSpecificCategory,
   updateCategoryController,
-} from "../controllers/categoryController";
+} from "../controllers/categoryController.js";
 
-import { isAdmin, loginTokenCheck } from "../middlewares/authMiddleWare";
+import { isAdmin, loginTokenCheck } from "../middlewares/authMiddleWare.js";
 
 //creating category router
 const router = express.Router();
@@ -29,7 +29,7 @@ router.put(
 );
 
 //get specific category-route
-router.get("/single-category:/slug", loginTokenCheck, getSpecificCategory);
+router.get("/single-category/:slug", loginTokenCheck, getSpecificCategory);
 
 //get all category-route
 router.get("/categories", getAllCategoriesController);
