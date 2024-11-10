@@ -35,6 +35,13 @@ app.get("/api/getkey", (req, res) => {
   });
 });
 
+//get server status
+app.get("/api/status", (req, res) => {
+  res.status(200).json({
+    status: "ok",
+  });
+});
+
 export const instance = new Razorpay({
   key_id: process.env.RAZORPAY_API_KEY,
   key_secret: process.env.RAZORPAY_API_SECRET,
