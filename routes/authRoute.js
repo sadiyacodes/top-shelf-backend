@@ -35,7 +35,7 @@ router.get("/user-auth", loginTokenCheck, (req, res) => {
 //admin auth protected route
 router.get("/admin-auth", loginTokenCheck, isAdmin, (req, res) => {
   res.status(200).send({
-    ok: true,
+    isAdmin: true,
   });
 });
 

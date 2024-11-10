@@ -37,10 +37,10 @@ export const createProductController = async (req, res) => {
           .send({ success: false, error: `quantity is required` });
         break;
 
-      case !image && image.size > 100000:
+      case !image || image.size > 100000:
         return res
           .status(500)
-          .send({ success: false, error: `shipping detail is required` });
+          .send({ success: false, error: `image is required` });
         break;
       default:
         console.log("Default reached");
@@ -144,7 +144,7 @@ export const getAllProductsController = async (req, res) => {
       .find({})
       .populate("category")
       .select("-image")
-      .limit(20)
+      .limit(500)
       .sort({ price: "desc" });
 
     if (!products) {
